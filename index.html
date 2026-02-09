@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestSmart 2.0 - Seu Futuro Financeiro Começa Aqui</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --secondary: #3B82F6;
+            --accent: #F59E0B;
+            --danger: #EF4444;
+            --success: #22C55E;
+            --dark: #111827;
+            --dark-light: #1F2937;
+            --text: #374151;
+            --text-light: #6B7280;
+            --bg: #F9FAFB;
+            --white: #FFFFFF;
+            --border: #E5E7EB;
+            --gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #EBF8F2 0%, #F0F9FF 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Did You Know Cards */
+        .tip-card {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .tip-content h4 {
+            color: #92400E;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-content p {
+            color: #78350F;
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .alert-warning {
+            background: #FEF3C7;
+            border-left: 4px solid var(--accent);
+        }
+
+        .alert-info {
+            background: #DBEAFE;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .alert-success {
+            background: #D1FAE5;
+            border-left: 4px solid var(--success);
+        }
+
+        /* Simulator */
+        .simulator {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #EBF8F2 0%, #F0F9FF 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* Pie Chart */
+        .pie-chart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .pie-chart {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .pie-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        /* Line Chart */
+        .line-chart {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .chart-area {
+            position: relative;
+            height: 300px;
+            border-left: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .chart-line-path {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 3;
+        }
+
+        .chart-point {
+            fill: var(--primary);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .table-header {
+            background: var(--gradient);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            padding: 1.5rem;
+            font-weight: 700;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .table-row:hover {
+            background: var(--bg);
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .badge-low {
+            background: #DEF7EC;
+            color: #03543F;
+        }
+
+        .badge-medium {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .badge-high {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        /* Blog Posts */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .blog-post h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Glossary */
+        .glossary-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .glossary-item {
+            background: var(--white);
+            border-left: 4px solid var(--primary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .glossary-term {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Profile Selection */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .profile-card {
+            background: var(--white);
+            border: 3px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .profile-card:hover,
+        .profile-card.active {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #EBF8F2 0%, #F0F9FF 100%);
+            transform: translateY(-5px);
+        }
+
+        .profile-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Quiz */
+        .quiz-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+        }
+
+        .quiz-question h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            padding: 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary);
+            background: var(--bg);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #EBF8F2 0%, #F0F9FF 100%);
+        }
+
+        .quiz-radio {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .quiz-option.selected .quiz-radio {
+            border-color: var(--primary);
+        }
+
+        .quiz-option.selected .quiz-radio::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .quiz-result {
+            background: linear-gradient(135deg, #EBF8F2 0%, #F0F9FF 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Goal Templates */
+        .goal-templates {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .goal-template {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .goal-template:hover,
+        .goal-template.active {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .goal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #9CA3AF;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab:hover,
+        .tab.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .table-header > *,
+            .table-row > * {
+                text-align: left;
+            }
+
+            .pie-chart {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span>🌱</span>
+                InvestSmart 2.0
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#guia">Guia</a></li>
+                <li><a href="#simulador">Simuladores</a></li>
+                <li><a href="#metas">Metas</a></li>
+                <li><a href="#comparador">Comparador</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Seu Futuro Financeiro Começa Aqui</h1>
+            <p>Aprenda a investir do zero, descubra seu perfil e planeje seu futuro com ferramentas completas e gratuitas</p>
+            <div class="hero-buttons">
+                <a href="#quiz" class="btn btn-primary">Descobrir Meu Perfil</a>
+                <a href="#simulador" class="btn btn-secondary">Simular Investimentos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Perfil -->
+    <section id="quiz" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">🎯 Descubra Seu Perfil de Investidor</h2>
+            <p class="section-subtitle">Responda 5 perguntas rápidas e saiba qual estratégia combina com você</p>
+
+            <div class="quiz-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quizProgress" style="width: 0%"></div>
+                </div>
+
+                <div id="quizQuestions"></div>
+
+                <button class="btn btn-primary" id="quizSubmit" style="width: 100%; margin-top: 2rem;" disabled>Ver Meu Resultado</button>
+
+                <div id="quizResultBox" class="quiz-result hidden">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;" id="resultIcon"></div>
+                    <h3 id="resultTitle" style="font-size: 2rem; margin-bottom: 1rem;"></h3>
+                    <p id="resultDescription" style="font-size: 1.1rem; color: var(--text-light);"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Did You Know -->
+    <section style="background: var(--bg);">
+        <div class="container">
+            <div class="tip-card">
+                <div class="tip-icon">💡</div>
+                <div class="tip-content">
+                    <h4>Você Sabia?</h4>
+                    <p>Se você investir apenas R$ 100 por mês durante 30 anos a 10% ao ano, terá mais de R$ 226 mil! Esse é o poder dos juros compostos - Einstein os chamava de "a oitava maravilha do mundo".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guia para Iniciantes -->
+    <section id="guia" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">📚 Guia Completo para Iniciantes</h2>
+            <p class="section-subtitle">Aprenda os fundamentos de investimentos de forma simples e prática</p>
+
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('renda-fixa')">Renda Fixa</div>
+                <div class="tab" onclick="showTab('renda-variavel')">Renda Variável</div>
+                <div class="tab" onclick="showTab('glossario')">Glossário</div>
+            </div>
+
+            <!-- Renda Fixa Tab -->
+            <div id="renda-fixa" class="tab-content active">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🏦</div>
+                        <h3>CDB - Certificado de Depósito Bancário</h3>
+                        <p><strong>O que é:</strong> Você empresta dinheiro para o banco e recebe juros em troca.</p>
+                        <p><strong>Risco:</strong> Baixo (protegido pelo FGC até R$ 250 mil)</p>
+                        <p><strong>Liquidez:</strong> Pode ser diária ou no vencimento</p>
+                        <p><strong>Ideal para:</strong> Reserva de emergência e objetivos de curto prazo</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🏛️</div>
+                        <h3>Tesouro Direto</h3>
+                        <p><strong>O que é:</strong> Você empresta dinheiro para o governo brasileiro.</p>
+                        <p><strong>Tipos:</strong></p>
+                        <ul style="margin-left: 1.5rem; color: var(--text-light);">
+                            <li><strong>Tesouro Selic:</strong> Acompanha a taxa básica de juros</li>
+                            <li><strong>Tesouro IPCA+:</strong> Protege da inflação</li>
+                            <li><strong>Tesouro Prefixado:</strong> Você sabe quanto vai ganhar</li>
+                        </ul>
+                        <p><strong>Ideal para:</strong> Todos os prazos e objetivos</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">💰</div>
+                        <h3>LCI e LCA</h3>
+                        <p><strong>O que é:</strong> Investimentos ligados ao mercado imobiliário (LCI) ou agronegócio (LCA).</p>
+                        <p><strong>Vantagem:</strong> Isentos de Imposto de Renda!</p>
+                        <p><strong>Desvantagem:</strong> Geralmente têm prazo de carência</p>
+                        <p><strong>Ideal para:</strong> Médio e longo prazo</p>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning mt-2">
+                    <span style="font-size: 1.5rem;">⚠️</span>
+                    <div>
+                        <strong>Atenção!</strong> Rentabilidade passada não garante retornos futuros. Sempre diversifique seus investimentos e considere seus objetivos antes de aplicar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Renda Variável Tab -->
+            <div id="renda-variavel" class="tab-content">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">📈</div>
+                        <h3>Ações</h3>
+                        <p><strong>O que é:</strong> Você se torna sócio de empresas comprando pequenas partes delas.</p>
+                        <p><strong>Risco:</strong> Alto - o preço varia diariamente</p>
+                        <p><strong>Retorno:</strong> Pode ganhar com valorização das ações + dividendos</p>
+                        <p><strong>Ideal para:</strong> Longo prazo e quem tolera volatilidade</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>ETFs - Fundos de Índice</h3>
+                        <p><strong>O que é:</strong> Uma cesta de ações que replica um índice (ex: Ibovespa).</p>
+                        <p><strong>Vantagem:</strong> Diversificação automática com um único investimento</p>
+                        <p><strong>Custo:</strong> Taxas menores que fundos tradicionais</p>
+                        <p><strong>Ideal para:</strong> Quem quer investir em ações sem escolher empresa por empresa</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🏢</div>
+                        <h3>FIIs - Fundos Imobiliários</h3>
+                        <p><strong>O que é:</strong> Investimento em imóveis comerciais, shoppings, galpões logísticos.</p>
+                        <p><strong>Rendimento:</strong> Receba aluguéis mensais (dividendos)</p>
+                        <p><strong>Vantagem:</strong> Dividendos isentos de IR para pessoa física</p>
+                        <p><strong>Ideal para:</strong> Renda passiva mensal</p>
+                    </div>
+                </div>
+
+                <div class="tip-card mt-2">
+                    <div class="tip-icon">💡</div>
+                    <div class="tip-content">
+                        <h4>Dica de Ouro</h4>
+                        <p>Warren Buffett, um dos maiores investidores do mundo, recomenda que iniciantes comecem com ETFs que seguem o índice S&P 500 ou Ibovespa. É uma forma segura e eficiente de começar na renda variável!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Glossário Tab -->
+            <div id="glossario" class="tab-content">
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <div class="glossary-term">Liquidez</div>
+                        <p>É a facilidade de transformar seu investimento em dinheiro. Alta liquidez = pode resgatar rapidamente sem perder muito dinheiro.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">Rentabilidade</div>
+                        <p>Quanto seu dinheiro rendeu em um período. Pode ser expressa em % ao mês, ao ano, etc.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">Diversificação</div>
+                        <p>Não colocar todos os ovos na mesma cesta. Espalhar investimentos em diferentes ativos para reduzir risco.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">Juros Compostos</div>
+                        <p>Os "juros sobre juros". Você ganha retorno sobre o valor inicial + os juros acumulados. É o segredo para patrimônio de longo prazo!</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">CDI</div>
+                        <p>Certificado de Depósito Interbancário. É uma taxa de referência do mercado, próxima à Selic. Muitos investimentos rendem % do CDI.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">IPCA</div>
+                        <p>Índice de inflação oficial do Brasil. Investimentos atrelados ao IPCA protegem seu poder de compra.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">IR - Imposto de Renda</div>
+                        <p>Tributo sobre ganhos de investimentos. Renda fixa tem tabela regressiva (15% a 22,5%). Alguns investimentos são isentos.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">FGC</div>
+                        <p>Fundo Garantidor de Créditos. Protege até R$ 250 mil por CPF por instituição em caso de falência do banco.</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">Volatilidade</div>
+                        <p>Medida de quanto o preço de um ativo oscila. Alta volatilidade = grandes variações de preço (maior risco e potencial retorno).</p>
+                    </div>
+
+                    <div class="glossary-item">
+                        <div class="glossary-term">Dividendos</div>
+                        <p>Parte do lucro das empresas distribuída aos acionistas. É como receber um "aluguel" por ser dono de ações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simuladores -->
+    <section id="simulador">
+        <div class="container">
+            <h2 class="section-title">🧮 Simuladores de Investimento</h2>
+            <p class="section-subtitle">Descubra quanto seu dinheiro pode render ao longo do tempo</p>
+
+            <div class="tabs">
+                <div class="tab active" onclick="showSimulator('mensal')">Investimento Mensal</div>
+                <div class="tab" onclick="showSimulator('aposentadoria')">Aposentadoria</div>
+                <div class="tab" onclick="showSimulator('objetivo')">Meta Específica</div>
+            </div>
+
+            <!-- Simulador Mensal -->
+            <div id="sim-mensal" class="simulator">
+                <h3 class="mb-2">Quanto Vou Ter Investindo Todo Mês?</h3>
+                
+                <div class="input-group">
+                    <label for="aporte">Quanto você vai investir por mês? (R$)</label>
+                    <input type="number" id="aporte" value="200" min="0" step="10">
+                </div>
+
+                <div class="input-group">
+                    <label for="periodo">Por quantos anos?</label>
+                    <input type="number" id="periodo" value="10" min="1" max="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="taxa">Taxa de juros anual esperada (%)</label>
+                    <input type="number" id="taxa" value="10" min="0" max="30" step="0.5">
+                </div>
+
+                <button class="btn btn-primary" onclick="calcularInvestimento()" style="width: 100%; margin-top: 1rem;">Calcular</button>
+
+                <div class="result-box" id="resultado" style="display: none;">
+                    <div class="result-value" id="valorFinal">R$ 0,00</div>
+                    <div class="result-label">Valor Final Estimado</div>
+                    <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);" id="totalAportado">R$ 0</div>
+                            <div style="font-size: 0.875rem; color: var(--text-light);">Total Investido</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent);" id="rendimento">R$ 0</div>
+                            <div style="font-size: 0.875rem; color: var(--text-light);">Rendimento Puro</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="evolutionChart" class="line-chart" style="display: none;">
+                    <h4>📈 Evolução do Patrimônio</h4>
+                    <canvas id="chartCanvas" style="width: 100%; height: 300px;"></canvas>
+                </div>
+            </div>
+
+            <!-- Simulador Aposentadoria -->
+            <div id="sim-aposentadoria" class="simulator hidden">
+                <h3 class="mb-2">Com Quanto Vou Me Aposentar?</h3>
+                
+                <div class="input-group">
+                    <label for="aposentIdade">Sua idade atual</label>
+                    <input type="number" id="aposentIdade" value="30" min="18" max="80">
+                </div>
+
+                <div class="input-group">
+                    <label for="aposentIdadeAlvo">Com quantos anos quer se aposentar?</label>
+                    <input type="number" id="aposentIdadeAlvo" value="60" min="30" max="100">
+                </div>
+
+                <div class="input-group">
+                    <label for="aposentAporte">Quanto pode investir por mês? (R$)</label>
+                    <input type="number" id="aposentAporte" value="500" min="0" step="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="aposentTaxa">Taxa de retorno esperada (% ao ano)</label>
+                    <input type="number" id="aposentTaxa" value="10" min="0" max="30" step="0.5">
+                </div>
+
+                <button class="btn btn-primary" onclick="calcularAposentadoria()" style="width: 100%; margin-top: 1rem;">Calcular Aposentadoria</button>
+
+                <div class="result-box" id="resultadoAposentadoria" style="display: none;">
+                    <div class="result-value" id="valorAposentadoria">R$ 0,00</div>
+                    <div class="result-label">Patrimônio na Aposentadoria</div>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-size: 1.1rem; color: var(--text-light);" id="rendaMensal"></p>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
+                            *Considerando que você vai retirar 0.5% ao mês (6% ao ano) do patrimônio
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulador Objetivo -->
+            <div id="sim-objetivo" class="simulator hidden">
+                <h3 class="mb-2">Quanto Preciso Investir para Atingir Minha Meta?</h3>
+                
+                <div class="input-group">
+                    <label for="objetivoValor">Qual é sua meta? (R$)</label>
+                    <input type="number" id="objetivoValor" value="50000" min="0" step="1000">
+                </div>
+
+                <div class="input-group">
+                    <label for="objetivoPrazo">Em quantos anos?</label>
+                    <input type="number" id="objetivoPrazo" value="5" min="1" max="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="objetivoTaxa">Taxa de retorno esperada (% ao ano)</label>
+                    <input type="number" id="objetivoTaxa" value="10" min="0" max="30" step="0.5">
+                </div>
+
+                <button class="btn btn-primary" onclick="calcularObjetivo()" style="width: 100%; margin-top: 1rem;">Calcular Quanto Investir</button>
+
+                <div class="result-box" id="resultadoObjetivo" style="display: none;">
+                    <div class="result-value" id="aporteNecessario">R$ 0,00</div>
+                    <div class="result-label">Você precisa investir por mês</div>
+                    <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--white); border-radius: 12px;">
+                        <p style="font-size: 1rem; color: var(--text);" id="detalhesObjetivo"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-card mt-2">
+                <div class="tip-icon">💡</div>
+                <div class="tip-content">
+                    <h4>Você Sabia?</h4>
+                    <p>A Regra dos 72 é uma forma rápida de saber em quantos anos seu dinheiro vai dobrar: divida 72 pela taxa de juros. Exemplo: a 10% ao ano, seu dinheiro dobra em aproximadamente 7,2 anos (72 ÷ 10 = 7,2)!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metas Financeiras -->
+    <section id="metas" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">🎯 Planeje Suas Metas Financeiras</h2>
+            <p class="section-subtitle">Escolha seu objetivo e descubra como alcançá-lo</p>
+
+            <div class="goal-templates">
+                <div class="goal-template" onclick="selectGoal('carro', 40000, 3)">
+                    <div class="goal-icon">🚗</div>
+                    <h3>Comprar um Carro</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Meta: R$ 40.000 em 3 anos</p>
+                </div>
+
+                <div class="goal-template" onclick="selectGoal('viagem', 15000, 2)">
+                    <div class="goal-icon">✈️</div>
+                    <h3>Viajar para o Exterior</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Meta: R$ 15.000 em 2 anos</p>
+                </div>
+
+                <div class="goal-template" onclick="selectGoal('casa', 150000, 10)">
+                    <div class="goal-icon">🏠</div>
+                    <h3>Entrada de Imóvel</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Meta: R$ 150.000 em 10 anos</p>
+                </div>
+
+                <div class="goal-template" onclick="selectGoal('reserva', 30000, 2)">
+                    <div class="goal-icon">🛡️</div>
+                    <h3>Reserva de Emergência</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Meta: R$ 30.000 em 2 anos</p>
+                </div>
+
+                <div class="goal-template" onclick="selectGoal('negocio', 80000, 5)">
+                    <div class="goal-icon">💼</div>
+                    <h3>Abrir um Negócio</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Meta: R$ 80.000 em 5 anos</p>
+                </div>
+
+                <div class="goal-template" onclick="selectGoal('educacao', 50000, 4)">
+                    <div class="goal-icon">🎓</div>
+                    <h3>Pós-Graduação</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Meta: R$ 50.000 em 4 anos</p>
+                </div>
+            </div>
+
+            <div id="goalResult" class="result-box" style="display: none;">
+                <h3 id="goalTitle" style="margin-bottom: 1rem;"></h3>
+                <div class="result-value" id="goalMonthly">R$ 0,00</div>
+                <div class="result-label">Investimento mensal necessário</div>
+                
+                <div style="margin-top: 2rem; text-align: left;">
+                    <h4 style="margin-bottom: 1rem;">📊 Onde Investir:</h4>
+                    <div id="goalInvestments"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparador -->
+    <section id="comparador">
+        <div class="container">
+            <h2 class="section-title">⚖️ Comparador de Investimentos</h2>
+            <p class="section-subtitle">Compare diferentes opções e escolha a melhor para você</p>
+
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div>Investimento</div>
+                    <div class="text-center">Rentabilidade</div>
+                    <div class="text-center">Liquidez</div>
+                    <div class="text-center">Risco</div>
+                    <div class="text-center">IR</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>Poupança</strong></div>
+                    <div class="text-center">~6,17% a.a.</div>
+                    <div class="text-center">Imediata</div>
+                    <div class="text-center"><span class="badge badge-low">Baixo</span></div>
+                    <div class="text-center">Isento</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>Tesouro Selic</strong></div>
+                    <div class="text-center">~13,65% a.a.</div>
+                    <div class="text-center">D+1</div>
+                    <div class="text-center"><span class="badge badge-low">Baixíssimo</span></div>
+                    <div class="text-center">15-22,5%</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>CDB 100% CDI</strong></div>
+                    <div class="text-center">~13,65% a.a.</div>
+                    <div class="text-center">Varia</div>
+                    <div class="text-center"><span class="badge badge-low">Baixo</span></div>
+                    <div class="text-center">15-22,5%</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>LCI/LCA</strong></div>
+                    <div class="text-center">~11% a.a.</div>
+                    <div class="text-center">Vencimento</div>
+                    <div class="text-center"><span class="badge badge-low">Baixo</span></div>
+                    <div class="text-center">Isento</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>Tesouro IPCA+</strong></div>
+                    <div class="text-center">IPCA + 6,5%</div>
+                    <div class="text-center">D+1</div>
+                    <div class="text-center"><span class="badge badge-low">Baixo</span></div>
+                    <div class="text-center">15-22,5%</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>Fundos Imobiliários</strong></div>
+                    <div class="text-center">~8-12% a.a.</div>
+                    <div class="text-center">D+2</div>
+                    <div class="text-center"><span class="badge badge-medium">Médio</span></div>
+                    <div class="text-center">Div. Isento</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>Ações</strong></div>
+                    <div class="text-center">Variável</div>
+                    <div class="text-center">D+2</div>
+                    <div class="text-center"><span class="badge badge-high">Alto</span></div>
+                    <div class="text-center">15% ganho</div>
+                </div>
+
+                <div class="table-row">
+                    <div><strong>ETFs</strong></div>
+                    <div class="text-center">Variável</div>
+                    <div class="text-center">D+2</div>
+                    <div class="text-center"><span class="badge badge-medium">Médio-Alto</span></div>
+                    <div class="text-center">15% ganho</div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-2">
+                <span style="font-size: 1.5rem;">ℹ️</span>
+                <div>
+                    <strong>Importante!</strong> Os valores de rentabilidade são aproximados e baseados no cenário atual (Fev/2026). Rentabilidade passada não garante retorno futuro. Consulte sempre um especialista antes de investir.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">📝 Blog InvestSmart</h2>
+            <p class="section-subtitle">Artigos, dicas e casos reais para sua educação financeira</p>
+
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="blog-image">📊</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 10 Fev 2026</span>
+                            <span>⏱️ 5 min</span>
+                        </div>
+                        <h3>Quanto Rende Investir R$ 200 por Mês?</h3>
+                        <p>Descubra o poder dos juros compostos com apenas R$ 200 mensais. Em 20 anos, você pode ter mais de R$ 160 mil!</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">⚠️</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 08 Fev 2026</span>
+                            <span>⏱️ 7 min</span>
+                        </div>
+                        <h3>5 Erros Que Todo Iniciante Comete</h3>
+                        <p>Evite armadilhas comuns: não ter reserva de emergência, investir sem estudar, seguir dicas de WhatsApp e muito mais.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">📈</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 05 Fev 2026</span>
+                            <span>⏱️ 8 min</span>
+                        </div>
+                        <h3>Vale a Pena Investir em Ações em 2026?</h3>
+                        <p>Análise do cenário econômico brasileiro, perspectivas para bolsa de valores e como começar com segurança.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">🎯</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 01 Fev 2026</span>
+                            <span>⏱️ 6 min</span>
+                        </div>
+                        <h3>Caso Real: De Zero a R$ 100 mil em 5 Anos</h3>
+                        <p>História inspiradora de João, 28 anos, que saiu das dívidas e acumulou patrimônio com disciplina e estratégia.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">🏠</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 28 Jan 2026</span>
+                            <span>⏱️ 10 min</span>
+                        </div>
+                        <h3>Como Juntar Dinheiro para Comprar um Imóvel</h3>
+                        <p>Passo a passo completo: quanto guardar, onde investir, prazo ideal e simulações práticas para diferentes cenários.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">💼</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 25 Jan 2026</span>
+                            <span>⏱️ 9 min</span>
+                        </div>
+                        <h3>Aposentadoria: Quanto Você Precisa Acumular?</h3>
+                        <p>Calcule seu número da independência financeira e descubra quanto investir mensalmente para se aposentar tranquilo.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carteira Sugerida -->
+    <section style="background: var(--bg);">
+        <div class="container">
+            <h2 class="section-title">💼 Monte Sua Carteira Ideal</h2>
+            <p class="section-subtitle">Distribuição sugerida de acordo com seu perfil</p>
+
+            <div class="profile-grid">
+                <div class="profile-card" onclick="selectProfile('conservador')">
+                    <div class="profile-icon">🛡️</div>
+                    <h3>Conservador</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Prioriza segurança e preservação do capital. Aceita menor rentabilidade.</p>
+                    <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
+                        <div>✓ 80% Renda Fixa</div>
+                        <div>✓ 20% Renda Variável</div>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('moderado')">
+                    <div class="profile-icon">⚖️</div>
+                    <h3>Moderado</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Busca equilíbrio entre segurança e rentabilidade.</p>
+                    <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
+                        <div>✓ 50% Renda Fixa</div>
+                        <div>✓ 50% Renda Variável</div>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="selectProfile('arrojado')">
+                    <div class="profile-icon">🚀</div>
+                    <h3>Arrojado</h3>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Foco em máxima rentabilidade. Aceita maior volatilidade.</p>
+                    <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
+                        <div>✓ 20% Renda Fixa</div>
+                        <div>✓ 80% Renda Variável</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="portfolio-result" style="display: none; margin-top: 3rem;">
+                <h3 class="text-center mb-2">Carteira Sugerida para Perfil <span id="profile-name"></span></h3>
+                
+                <div class="pie-chart-container">
+                    <div class="pie-chart" id="pieChart"></div>
+                    <div class="pie-legend" id="pieLegend"></div>
+                </div>
+
+                <div class="cards-grid mt-2">
+                    <div class="card">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">📊 Distribuição Detalhada</h4>
+                        <div id="allocation-details"></div>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">🎯 Rentabilidade Esperada</h4>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--secondary); margin: 1rem 0;" id="expected-return">0%</div>
+                        <p style="color: var(--text-light);">ao ano (projeção conservadora)</p>
+                    </div>
+
+                    <div class="card">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">⏱️ Horizonte de Tempo</h4>
+                        <p id="time-horizon"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: var(--gradient); color: var(--white); text-align: center; padding: 5rem 0;">
+        <div class="container">
+            <h2 style="color: var(--white); font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem;">
+                Pronto para Transformar seu Futuro Financeiro?
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                Comece hoje mesmo a construir o patrimônio dos seus sonhos
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#quiz" class="btn" style="background: var(--white); color: var(--primary);">Fazer o Quiz</a>
+                <a href="#simulador" class="btn" style="background: transparent; border: 2px solid var(--white); color: var(--white);">Simular Investimentos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem;">
+                        <span>🌱</span> InvestSmart 2.0
+                    </h4>
+                    <p style="margin-top: 1rem; color: #9CA3AF;">
+                        Educação financeira completa e gratuita. Aprenda, simule, planeje e conquiste seu futuro.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#quiz">Quiz de Perfil</a></li>
+                        <li><a href="#guia">Guia Completo</a></li>
+                        <li><a href="#simulador">Simuladores</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Ferramentas</h4>
+                    <ul>
+                        <li><a href="#metas">Metas Financeiras</a></li>
+                        <li><a href="#comparador">Comparador</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p style="color: #9CA3AF; margin-top: 1rem;">
+                        📧 contato@investsmart.com<br>
+                        📱 (11) 9999-9999<br>
+                        📍 São Paulo, Brasil
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 InvestSmart 2.0. Todos os direitos reservados. | Conteúdo educacional - não é recomendação de investimento.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Quiz
+        const quizData = [
+            {
+                question: "1. Qual é sua experiência com investimentos?",
+                options: [
+                    { text: "Nunca investi, só tenho poupança", score: { conservador: 3, moderado: 1, arrojado: 0 } },
+                    { text: "Já investi em renda fixa (CDB, Tesouro)", score: { conservador: 2, moderado: 2, arrojado: 1 } },
+                    { text: "Invisto em ações e fundos variados", score: { conservador: 0, moderado: 1, arrojado: 3 } }
+                ]
+            },
+            {
+                question: "2. Como você reagiria se seu investimento perdesse 20% em um mês?",
+                options: [
+                    { text: "Ficaria muito preocupado e resgataria tudo", score: { conservador: 3, moderado: 0, arrojado: 0 } },
+                    { text: "Ficaria preocupado mas esperaria recuperar", score: { conservador: 1, moderado: 3, arrojado: 1 } },
+                    { text: "Veria como oportunidade de comprar mais", score: { conservador: 0, moderado: 0, arrojado: 3 } }
+                ]
+            },
+            {
+                question: "3. Qual é seu objetivo principal ao investir?",
+                options: [
+                    { text: "Preservar meu patrimônio com segurança", score: { conservador: 3, moderado: 1, arrojado: 0 } },
+                    { text: "Ter retornos consistentes sem muito risco", score: { conservador: 1, moderado: 3, arrojado: 1 } },
+                    { text: "Maximizar ganhos, aceito volatilidade", score: { conservador: 0, moderado: 1, arrojado: 3 } }
+                ]
+            },
+            {
+                question: "4. Quando você vai precisar desse dinheiro?",
+                options: [
+                    { text: "Menos de 2 anos (curto prazo)", score: { conservador: 3, moderado: 1, arrojado: 0 } },
+                    { text: "Entre 2 e 5 anos (médio prazo)", score: { conservador: 1, moderado: 3, arrojado: 1 } },
+                    { text: "Mais de 5 anos (longo prazo)", score: { conservador: 0, moderado: 1, arrojado: 3 } }
+                ]
+            },
+            {
+                question: "5. Quanto você já tem de reserva de emergência?",
+                options: [
+                    { text: "Não tenho ou tenho menos de 3 meses de gastos", score: { conservador: 3, moderado: 2, arrojado: 1 } },
+                    { text: "Entre 3 e 6 meses de gastos", score: { conservador: 2, moderado: 3, arrojado: 2 } },
+                    { text: "Mais de 6 meses de gastos", score: { conservador: 1, moderado: 2, arrojado: 3 } }
+                ]
+            }
+        ];
+
+        let quizAnswers = [];
+
+        function initQuiz() {
+            const container = document.getElementById('quizQuestions');
+            let html = '';
+            
+            quizData.forEach((q, qIndex) => {
+                html += `
+                    <div class="quiz-question">
+                        <h4>${q.question}</h4>
+                        <div class="quiz-options">
+                            ${q.options.map((opt, oIndex) => `
+                                <div class="quiz-option" onclick="selectQuizOption(${qIndex}, ${oIndex})">
+                                    <div class="quiz-radio"></div>
+                                    <span>${opt.text}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function selectQuizOption(questionIndex, optionIndex) {
+            const question = document.querySelectorAll('.quiz-question')[questionIndex];
+            question.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+            question.querySelectorAll('.quiz-option')[optionIndex].classList.add('selected');
+            
+            quizAnswers[questionIndex] = optionIndex;
+            
+            const progress = ((quizAnswers.filter(a => a !== undefined).length) / quizData.length) * 100;
+            document.getElementById('quizProgress').style.width = progress + '%';
+            
+            if (quizAnswers.filter(a => a !== undefined).length === quizData.length) {
+                document.getElementById('quizSubmit').disabled = false;
+            }
+        }
+
+        document.getElementById('quizSubmit').addEventListener('click', () => {
+            const scores = { conservador: 0, moderado: 0, arrojado: 0 };
+            
+            quizAnswers.forEach((answerIndex, questionIndex) => {
+                const selected = quizData[questionIndex].options[answerIndex];
+                scores.conservador += selected.score.conservador;
+                scores.moderado += selected.score.moderado;
+                scores.arrojado += selected.score.arrojado;
+            });
+            
+            let profile = 'moderado';
+            if (scores.conservador > scores.moderado && scores.conservador > scores.arrojado) {
+                profile = 'conservador';
+            } else if (scores.arrojado > scores.moderado && scores.arrojado > scores.conservador) {
+                profile = 'arrojado';
+            }
+            
+            const profiles = {
+                conservador: {
+                    icon: '🛡️',
+                    title: 'Você é um Investidor Conservador!',
+                    description: 'Você prioriza segurança e preservação do capital. Prefere investimentos de baixo risco como renda fixa, mesmo que com menor rentabilidade. Recomendamos: 80% em Renda Fixa (CDB, Tesouro Selic) e 20% em Renda Variável (FIIs).'
+                },
+                moderado: {
+                    icon: '⚖️',
+                    title: 'Você é um Investidor Moderado!',
+                    description: 'Você busca equilíbrio entre segurança e rentabilidade. Está disposto a aceitar alguma volatilidade para ter melhores retornos no longo prazo. Recomendamos: 50% Renda Fixa (CDB, Tesouro IPCA+) e 50% Renda Variável (FIIs, ETFs, Ações).'
+                },
+                arrojado: {
+                    icon: '🚀',
+                    title: 'Você é um Investidor Arrojado!',
+                    description: 'Você foca em maximizar rentabilidade e está preparado para lidar com alta volatilidade. Tem horizonte de longo prazo e boa reserva de emergência. Recomendamos: 20% Renda Fixa (Tesouro IPCA+) e 80% Renda Variável (Ações, ETFs, FIIs).'
+                }
+            };
+            
+            document.getElementById('resultIcon').textContent = profiles[profile].icon;
+            document.getElementById('resultTitle').textContent = profiles[profile].title;
+            document.getElementById('resultDescription').textContent = profiles[profile].description;
+            document.getElementById('quizResultBox').classList.remove('hidden');
+            document.getElementById('quizResultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        initQuiz();
+
+        // Tabs
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Simulator Tabs
+        function showSimulator(simName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.simulator').forEach(sim => sim.classList.add('hidden'));
+            
+            event.target.classList.add('active');
+            document.getElementById('sim-' + simName).classList.remove('hidden');
+        }
+
+        // Calculadora Investimento Mensal
+        function calcularInvestimento() {
+            const aporte = parseFloat(document.getElementById('aporte').value);
+            const periodo = parseInt(document.getElementById('periodo').value);
+            const taxa = parseFloat(document.getElementById('taxa').value) / 100;
+
+            const meses = periodo * 12;
+            const taxaMensal = Math.pow(1 + taxa, 1/12) - 1;
+
+            let valorFinal = 0;
+            const evolucao = [];
+            
+            for (let i = 0; i < meses; i++) {
+                valorFinal = (valorFinal + aporte) * (1 + taxaMensal);
+                if (i % 12 === 11) {
+                    evolucao.push({ ano: Math.floor(i/12) + 1, valor: valorFinal });
+                }
+            }
+
+            const totalAportado = aporte * meses;
+            const rendimento = valorFinal - totalAportado;
+
+            document.getElementById('valorFinal').textContent = valorFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('totalAportado').textContent = totalAportado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('rendimento').textContent = rendimento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            
+            document.getElementById('resultado').style.display = 'block';
+            
+            // Mostrar gráfico de evolução
+            drawEvolutionChart(evolucao);
+            document.getElementById('evolutionChart').style.display = 'block';
+        }
+
+        function drawEvolutionChart(data) {
+            const canvas = document.getElementById('chartCanvas');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width = canvas.offsetWidth;
+            const height = canvas.height = 300;
+            
+            ctx.clearRect(0, 0, width, height);
+            
+            const maxValue = Math.max(...data.map(d => d.valor));
+            const padding = 40;
+            const chartWidth = width - padding * 2;
+            const chartHeight = height - padding * 2;
+            
+            // Desenhar eixos
+            ctx.strokeStyle = '#E5E7EB';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, height - padding);
+            ctx.lineTo(width - padding, height - padding);
+            ctx.stroke();
+            
+            // Desenhar linha
+            ctx.strokeStyle = '#10B981';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            data.forEach((point, index) => {
+                const x = padding + (index / (data.length - 1)) * chartWidth;
+                const y = height - padding - (point.valor / maxValue) * chartHeight;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            
+            ctx.stroke();
+            
+            // Desenhar pontos
+            ctx.fillStyle = '#10B981';
+            data.forEach((point, index) => {
+                const x = padding + (index / (data.length - 1)) * chartWidth;
+                const y = height - padding - (point.valor / maxValue) * chartHeight;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Labels dos anos
+            ctx.fillStyle = '#6B7280';
+            ctx.font = '12px DM Sans';
+            ctx.textAlign = 'center';
+            data.forEach((point, index) => {
+                const x = padding + (index / (data.length - 1)) * chartWidth;
+                ctx.fillText('Ano ' + point.ano, x, height - 10);
+            });
+        }
+
+        // Calculadora Aposentadoria
+        function calcularAposentadoria() {
+            const idadeAtual = parseInt(document.getElementById('aposentIdade').value);
+            const idadeAlvo = parseInt(document.getElementById('aposentIdadeAlvo').value);
+            const aporte = parseFloat(document.getElementById('aposentAporte').value);
+            const taxa = parseFloat(document.getElementById('aposentTaxa').value) / 100;
+            
+            const anos = idadeAlvo - idadeAtual;
+            const meses = anos * 12;
+            const taxaMensal = Math.pow(1 + taxa, 1/12) - 1;
+            
+            let valorFinal = 0;
+            for (let i = 0; i < meses; i++) {
+                valorFinal = (valorFinal + aporte) * (1 + taxaMensal);
+            }
+            
+            const rendaMensal = valorFinal * 0.005; // 0.5% ao mês
+            
+            document.getElementById('valorAposentadoria').textContent = valorFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('rendaMensal').textContent = `Você poderá retirar aproximadamente ${rendaMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} por mês`;
+            document.getElementById('resultadoAposentadoria').style.display = 'block';
+        }
+
+        // Calculadora Objetivo
+        function calcularObjetivo() {
+            const objetivo = parseFloat(document.getElementById('objetivoValor').value);
+            const prazo = parseInt(document.getElementById('objetivoPrazo').value);
+            const taxa = parseFloat(document.getElementById('objetivoTaxa').value) / 100;
+            
+            const meses = prazo * 12;
+            const taxaMensal = Math.pow(1 + taxa, 1/12) - 1;
+            
+            // PMT = FV * (r / ((1 + r)^n - 1))
+            const aporteMensal = objetivo * (taxaMensal / (Math.pow(1 + taxaMensal, meses) - 1));
+            
+            const totalInvestido = aporteMensal * meses;
+            const rendimento = objetivo - totalInvestido;
+            
+            document.getElementById('aporteNecessario').textContent = aporteMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('detalhesObjetivo').innerHTML = `
+                Investindo ${aporteMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} por mês durante ${prazo} anos, você terá:<br>
+                <strong>Total investido:</strong> ${totalInvestido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>
+                <strong>Rendimento:</strong> ${rendimento.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>
+                <strong>Total acumulado:</strong> ${objetivo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            `;
+            document.getElementById('resultadoObjetivo').style.display = 'block';
+        }
+
+        // Metas Financeiras
+        function selectGoal(goalName, valor, prazo) {
+            document.querySelectorAll('.goal-template').forEach(card => card.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            const taxa = 0.10; // 10% ao ano
+            const meses = prazo * 12;
+            const taxaMensal = Math.pow(1 + taxa, 1/12) - 1;
+            const aporteMensal = valor * (taxaMensal / (Math.pow(1 + taxaMensal, meses) - 1));
+            
+            const goals = {
+                carro: { icon: '🚗', name: 'Comprar um Carro', investments: 'CDB (50%), Tesouro Selic (30%), LCI (20%)' },
+                viagem: { icon: '✈️', name: 'Viajar para o Exterior', investments: 'Tesouro Selic (60%), CDB (40%)' },
+                casa: { icon: '🏠', name: 'Entrada de Imóvel', investments: 'Tesouro IPCA+ (40%), CDB (30%), LCI (20%), FIIs (10%)' },
+                reserva: { icon: '🛡️', name: 'Reserva de Emergência', investments: 'Tesouro Selic (70%), CDB com liquidez diária (30%)' },
+                negocio: { icon: '💼', name: 'Abrir um Negócio', investments: 'Tesouro IPCA+ (40%), CDB (30%), FIIs (20%), ETFs (10%)' },
+                educacao: { icon: '🎓', name: 'Pós-Graduação', investments: 'CDB (40%), Tesouro IPCA+ (40%), LCI (20%)' }
+            };
+            
+            document.getElementById('goalTitle').innerHTML = `${goals[goalName].icon} ${goals[goalName].name}`;
+            document.getElementById('goalMonthly').textContent = aporteMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            document.getElementById('goalInvestments').innerHTML = `
+                <div style="padding: 1rem; background: var(--bg); border-radius: 12px; margin-top: 0.5rem;">
+                    <strong>Sugestão de Alocação:</strong><br>
+                    ${goals[goalName].investments}
+                </div>
+                <div style="padding: 1rem; background: #DBEAFE; border-radius: 12px; margin-top: 1rem; border-left: 4px solid var(--secondary);">
+                    <strong>💡 Dica:</strong> Para objetivos de ${prazo} anos, priorize investimentos com boa liquidez e baixo risco.
+                </div>
+            `;
+            
+            document.getElementById('goalResult').style.display = 'block';
+            document.getElementById('goalResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Profile Selection
+        function selectProfile(profile) {
+            document.querySelectorAll('.profile-card').forEach(card => card.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const profiles = {
+                conservador: {
+                    name: 'Conservador',
+                    allocation: [
+                        { name: 'Tesouro Selic', percent: 40, color: '#10B981' },
+                        { name: 'CDB', percent: 30, color: '#3B82F6' },
+                        { name: 'LCI/LCA', percent: 10, color: '#8B5CF6' },
+                        { name: 'FIIs', percent: 15, color: '#F59E0B' },
+                        { name: 'Ações', percent: 5, color: '#EF4444' }
+                    ],
+                    return: '9-11%',
+                    horizon: 'Ideal para objetivos de curto e médio prazo (1-5 anos). Baixa volatilidade e alta segurança.'
+                },
+                moderado: {
+                    name: 'Moderado',
+                    allocation: [
+                        { name: 'Tesouro IPCA+', percent: 25, color: '#10B981' },
+                        { name: 'CDB', percent: 15, color: '#3B82F6' },
+                        { name: 'LCI/LCA', percent: 10, color: '#8B5CF6' },
+                        { name: 'FIIs', percent: 25, color: '#F59E0B' },
+                        { name: 'Ações/ETFs', percent: 25, color: '#EF4444' }
+                    ],
+                    return: '11-14%',
+                    horizon: 'Ideal para médio e longo prazo (5-15 anos). Volatilidade moderada com bom potencial de retorno.'
+                },
+                arrojado: {
+                    name: 'Arrojado',
+                    allocation: [
+                        { name: 'Tesouro IPCA+', percent: 10, color: '#10B981' },
+                        { name: 'CDB', percent: 10, color: '#3B82F6' },
+                        { name: 'FIIs', percent: 20, color: '#8B5CF6' },
+                        { name: 'Ações', percent: 40, color: '#F59E0B' },
+                        { name: 'ETFs', percent: 20, color: '#EF4444' }
+                    ],
+                    return: '14-18%',
+                    horizon: 'Ideal para longo prazo (10+ anos). Alta volatilidade com máximo potencial de retorno.'
+                }
+            };
+
+            const selectedProfile = profiles[profile];
+            
+            document.getElementById('profile-name').textContent = selectedProfile.name;
+            document.getElementById('expected-return').textContent = selectedProfile.return;
+            document.getElementById('time-horizon').textContent = selectedProfile.horizon;
+
+            // Allocation Details
+            let allocationHTML = '';
+            selectedProfile.allocation.forEach(item => {
+                allocationHTML += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; padding: 0.5rem; background: var(--bg); border-radius: 8px;">
+                        <span>${item.name}</span>
+                        <strong style="color: ${item.color}">${item.percent}%</strong>
+                    </div>
+                `;
+            });
+            document.getElementById('allocation-details').innerHTML = allocationHTML;
+
+            // Pie Chart
+            drawPieChart(selectedProfile.allocation);
+            
+            // Legend
+            let legendHTML = '';
+            selectedProfile.allocation.forEach(item => {
+                legendHTML += `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: ${item.color}"></div>
+                        <span>${item.name} - ${item.percent}%</span>
+                    </div>
+                `;
+            });
+            document.getElementById('pieLegend').innerHTML = legendHTML;
+
+            document.getElementById('portfolio-result').style.display = 'block';
+            document.getElementById('portfolio-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function drawPieChart(data) {
+            const pieChart = document.getElementById('pieChart');
+            let cumulativePercent = 0;
+            let gradients = [];
+            
+            data.forEach(item => {
+                const startPercent = cumulativePercent;
+                const endPercent = cumulativePercent + item.percent;
+                gradients.push(`${item.color} ${startPercent}% ${endPercent}%`);
+                cumulativePercent = endPercent;
+            });
+            
+            pieChart.style.background = `conic-gradient(${gradients.join(', ')})`;
+        }
+
+        // Auto calculate on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                calcularInvestimento();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
